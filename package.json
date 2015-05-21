@@ -1,0 +1,27 @@
+{
+  "name": "react-lambda",
+  "version": "0.0.1",
+  "description": "react demo that is rendered on aws-lambda",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "bundle": "browserify -t [ reactify --es6 ] client.js | uglifyjs > bundle.js",
+    "zip": "zip lambda.zip lambda.js clock.jsx bundle.js node_modules/react node_modules/node-jsx -r",
+    "build": "npm run bundle && npm run zip"
+  },
+  "keywords": [
+    "react",
+    "lambda",
+    "aws"
+  ],
+  "author": "liam griffiths <liamgriffiths@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1.29",
+    "browserify": "^10.2.1",
+    "node-jsx": "^0.13.3",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "uglify": "^0.1.3"
+  }
+}
